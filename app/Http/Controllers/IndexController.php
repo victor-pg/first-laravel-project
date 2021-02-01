@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class IndexController extends Controller
 {
     
    public function index(){
-    $test="hello world";
-    $test2="hello world2";
-       return view('index')->with('message',$test)->with('message2',$test2);
+      $articles = DB::select('select * from articles');
+      return view('index')->with('articles',$articles);
    }
 }
