@@ -9,7 +9,20 @@
   <link href="css/jumbotron.css" rel="stylesheet">
 
 </head>
-
+<style>
+  .standart-image-size{
+    /* width: 250px;
+    height: 250px;
+    object-fit: cover; */
+    width:100%;
+    height: 20%;
+    object-fit: scale-down;
+  }
+  .article{
+    width:15%;
+  }
+  
+</style>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
@@ -65,8 +78,9 @@
     <div class="container">
       <div class="row">
         @foreach($articles as $article)
-        <div class="col-md-4">
+        <div class="col-md-4 article">
           <h3>{{$article->title}}</h3>
+          <img src='{{asset("img/$article->img")}}' alt="image" class="standart-image-size" />
           <p>{{$article->description}}</p>
           <p>{{$article->content}}</p>
         </div>
